@@ -1,26 +1,23 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    color: #0f172a;
+    background-color: #fff7ed;
+    font-family: var(--font-geist-sans), "Noto Sans JP", system-ui, sans-serif;
+  }
+
+  * {
+    @apply border-stone-200;
+  }
+
+  body {
+    @apply min-h-screen bg-gradient-to-b from-orange-50 via-amber-50 to-stone-100 text-slate-900 antialiased;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
